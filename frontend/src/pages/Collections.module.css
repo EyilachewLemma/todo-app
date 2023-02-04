@@ -1,0 +1,47 @@
+.collctioncontaner{
+    width: 100%;
+    margin: auto;
+}
+.favoritbtn,.allcollectionbtn{
+    color: #fff;
+    margin-right: 5%;
+}
+.favoritbtn:focus{
+ background-color: rgb(66, 65, 65);;
+}
+.allcollectionbtn:focus{
+    background-color: rgb(66, 65, 65);;
+}
+.collectionItem{
+    background-color: rgb(66, 65, 65);
+    border-radius: 1rem;
+}
+.collectionItem:hover{
+    cursor: pointer;
+}
+.collectionicon{
+    border-radius: 0.7rem;
+    
+    
+}
+.collectioniconschooll{
+    background-color: rgb(237, 147, 177);
+}
+.collectioniconpersonal{
+    background-color: aqua;
+}
+.collectionicondesign{
+    background-color: rgb(196, 156, 233);
+}
+.collectionicongrocery{
+    background-color: rgb(238, 212, 85);
+}
+.addcollectionItem{
+   border: 2px solid rgb(66, 65, 65);;
+    border-radius: 1rem;
+}
+@media only screen and (min-width:768px){
+    .collctioncontaner{
+        width: 50%;
+    }
+}

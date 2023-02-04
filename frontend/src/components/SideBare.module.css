@@ -1,0 +1,29 @@
+
+.sidebar{
+    background-color: rgb(66, 65, 65);
+    min-height: 100vh;
+}
+a.active{
+    background-color: blueviolet!important;
+}
+a{
+    text-decoration: none!important;
+    color: #fff;
+}
+.collectionicon{
+    border-radius: 0.7rem;
+    
+    
+}
+.collectioniconschool{
+    background-color: rgb(237, 147, 177);
+}
+.collectioniconpersonal{
+    background-color: aqua;
+}
+.collectionicondesign{
+    background-color: rgb(196, 156, 233);
+}
+.collectionicongrocery{
+    background-color: rgb(238, 212, 85);
+}
