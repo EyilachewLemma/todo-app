@@ -1,7 +1,7 @@
 import { Fragment,useEffect } from "react";
 import SideBar from "../components/SideBar";
 import TaskItem from "../components/TaskItem";
-import { useParams,useNavigate } from "react-router-dom";
+import { useParams,useNavigate,useSearchParams } from "react-router-dom";
 import apiClient from "../url";
 import {EllipsisOutlined } from '@ant-design/icons'
 import { useDispatch,useSelector } from "react-redux";
@@ -11,6 +11,8 @@ const TaskDetail = () => {
   const dispatch = useDispatch()
   const {id} = useParams()
   const navigate = useNavigate()
+  const [query] = useSearchParams()
+  const collectionName = query.get('collection')
   const tasks = useSelector(state=>state.task.tasks)
   const fechTasksByCollectionId = async() =>{
    try {
@@ -43,7 +45,7 @@ const TaskDetail = () => {
             <div className={`${classes.taskItem} mt-2`}>
             <div className="d-flex align-items-center">
             <span onClick={goBackHandler} className={`${classes.backbtn} bg-secondary rounded-circle text-white px-2 py-1`}><i className="fas fa-angle-left"></i></span>
-            <span className="fw-bold fs-5 ms-3">School</span>
+            <span className="fw-bold fs-5 ms-3">{collectionName}</span>
             <span className="ms-auto"><EllipsisOutlined /></span>
             </div>
             <div className="mt-4">

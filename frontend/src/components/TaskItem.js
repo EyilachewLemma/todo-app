@@ -64,6 +64,7 @@ const TaskItem = ({task}) => {
         >
         <div className='text-white d-flex'>
         <span><i className="fas fa-calendar"></i></span>
+        <span className='ms-2'>{task.date.slice(0,10)}</span>
         </div>
       </Panel>
     </Collapse>
