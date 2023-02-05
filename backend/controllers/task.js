@@ -35,6 +35,24 @@ const updateTask = async (req, res, next) => {
     }
 }
 
+const changeTaskStatus = async (req, res, next) => {
+    const id = req.params.id
+    const data = [req.body.completed, id]
+    const sql = `UPDATE tasks SET completed=? WHERE id=?`
+
+    try{
+        connection.query(sql, data, (err, result) => {
+            if(err) throw err
+            res.status(200).json(result)
+        })
+    }
+    catch(err){
+        res.status(500).json({
+            error:'faild to edit title'
+        })
+    }
+}
+
 const deleteTask = async (req, res, next) => {
     const sql = 'DELETE FROM tasks WHERE id=?'
 
@@ -70,6 +88,7 @@ const getTaskByCollection = async (req, res, next) => {
 module.exports = {
     createTask,
     updateTask,
+    changeTaskStatus,
     deleteTask,
     getTaskByCollection,
     getAllTask

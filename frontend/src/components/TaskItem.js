@@ -12,7 +12,17 @@ const TaskItem = ({task}) => {
     const [open,setOpen] = useState(false)
     const [openEditModal, setOpenEditModal] =useState(false)
     const dispatch = useDispatch()
-    const onChangeHandler = ()=>{}
+    const onChangeHandler = async()=>{
+        try{
+          const status = task.status ? 0:1
+         const response = await apiClient.patch(`tasks/status/${task.id}`,{completed:status})
+         if(response.status === 200){
+           dispatch(actions.taskAction.changeStatus({id:task.id,status}))
+         }
+        }
+        catch(err){}
+
+    }
     const openEditModalHandler = () =>{
       setOpen(false)
       setOpenEditModal(true)
@@ -55,8 +65,14 @@ const TaskItem = ({task}) => {
     >
       <Panel
        header=<div className='d-flex'>
-       <span><Checkbox onChange={onChangeHandler} style={{backgroundColor:"pink",borderRadius:'0.2rem'}}></Checkbox></span>
-       <span className='text-white ms-3 fw-bold'>{task.title}</span>
+       <span>
+       <Checkbox onChange={onChangeHandler} style={{backgroundColor:"pink",borderRadius:'0.2rem'}} checked={task.completed}></Checkbox>
+       </span>
+       <p className='text-white ms-3 fw-bold'>
+       {
+        !task.completed ? (<span>{task.title}</span>):(<strike>{task.title}</strike>)
+       }
+       </p>
        </div>
         key={task.id} 
         style={panelStyle}

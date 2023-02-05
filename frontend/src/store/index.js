@@ -26,9 +26,14 @@ const taskSlice = createSlice({
         deleteTask:(state,action)=>{
             const index = state.tasks.findIndex(task=>task.id===action.payload)
             state.tasks.splice(index,1)
-        },      
+        },  
+        
+        changeStatus:(state,action)=>{
+            const index = state.tasks.findIndex(task=>task.id===action.payload.id)
+            state.tasks[index].completed = action.payload.status
+        },
 
-
+        
     }
 })
 
