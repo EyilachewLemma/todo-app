@@ -9,8 +9,8 @@ const Collections = () => {
    const collections = useSelector(state=>state.collection.collections)
    const navigate = useNavigate()
    console.log('collections from state',collections)
-   const viewDetail = (id) =>{
-    navigate(`/${id}`)
+   const viewDetail = (id,colectionName) =>{
+    navigate(`/${id}?collection=${colectionName}`)
    }
   return (
     <Layout>
@@ -40,7 +40,7 @@ const Collections = () => {
             collections?.length > 0 && (
                 <div className="row mt-4">
                 <div
-                  onClick={()=>viewDetail(collections[0]?.id)}
+                  onClick={()=>viewDetail(collections[0]?.id,collections[0]?.name)}
                   className={`border shadow-sm p-2  col-5 col-md-3 me-4  me-md-3 mt-3 ${classes.collectionItem}`}
                 >
                   <div className="text-start py-2">
@@ -57,7 +57,7 @@ const Collections = () => {
                       <Space wrap>
                         <Progress
                           type="circle"
-                          percent={30}
+                          percent={50}
                           width={25}
                           showInfo={false}
                           strokeColor="#ED93B1"
@@ -67,7 +67,7 @@ const Collections = () => {
                   </div>
                 </div>
                 <div
-                onClick={()=>viewDetail(collections[1]?.id)}
+                onClick={()=>viewDetail(collections[1]?.id,collections[1]?.name)}
                 className={`border shadow-sm p-2  col-5 col-md-3  me-md-3 mt-3 ${classes.collectionItem}`}
               >
                 <div className="text-start py-2">
@@ -84,7 +84,7 @@ const Collections = () => {
                     <Space wrap>
                       <Progress
                         type="circle"
-                        percent={30}
+                        percent={25}
                         width={25}
                         showInfo={false}
                         strokeColor="#00FFFF"
@@ -94,7 +94,7 @@ const Collections = () => {
                 </div>
               </div>
               <div
-              onClick={()=>viewDetail(collections[2]?.id)}
+              onClick={()=>viewDetail(collections[2]?.id,collections[2]?.name)}
               className={`border shadow-sm p-2  col-5 col-md-3 me-4 me-3 mt-3 ${classes.collectionItem}`}
             >
               <div className="text-start py-2">
@@ -111,7 +111,7 @@ const Collections = () => {
                   <Space wrap>
                     <Progress
                       type="circle"
-                      percent={30}
+                      percent={70}
                       width={25}
                       showInfo={false}
                       strokeColor="#C49CE9"
@@ -121,7 +121,7 @@ const Collections = () => {
               </div>
             </div>
             <div
-            onClick={()=>viewDetail(collections[3]?.id)}
+            onClick={()=>viewDetail(collections[3]?.id,collections[3]?.name)}
             className={`border shadow-sm p-2  col-5 col-md-3  me-md-3 mt-3 ${classes.collectionItem}`}
           >
             <div className="text-start py-2">

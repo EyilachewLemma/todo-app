@@ -79,7 +79,7 @@ const TaskItem = ({task}) => {
       <Button variant="secondary" onClick={openEditModalHandler} className="addtaskbtn me-4 rounded-3 py-1">
       Edit Task Title
       </Button>
-         <Button variant='secondary' className='border' onClick={deleteTaskHandler}>Delete Task</Button>
+         <Button variant='secondary' className='border me-2' onClick={deleteTaskHandler}>Delete Task</Button>
          <Button variant='secondary' className='border' onClick={handleClose}>Cancel</Button>
       </div>
         </Modal.Body>
